@@ -9,9 +9,10 @@ const app = express();
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 const CLIENT_URL = process.env.CLIENT_URL || '*';
-
 app.use(cors({
   origin: CLIENT_URL,
+  methods: ['GET','POST','OPTIONS'],
+  allowedHeaders: ['Content-Type','Authorization'],
   credentials: true
 }));
 
