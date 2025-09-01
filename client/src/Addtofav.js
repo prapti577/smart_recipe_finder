@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import axios from "axios";
 import Card from "./Card";
+import API from './api';
 import "./Addtofav.css";
 
 export default function Favorites() {
+  console.log(process.env.REACT_APP_API_URL)
   const navigate = useNavigate();
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -17,7 +18,7 @@ export default function Favorites() {
         const token = localStorage.getItem('token');
         if (!token) throw new Error("No token found");
         
-        const res = await axios.get('http://localhost:5000/api/recipes/favorites', {
+        const res = await API.get('/api/recipes/favorites', {
           headers: { Authorization: `Bearer ${token}` }
         });
   // fetched favorites

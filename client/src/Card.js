@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Card.css';
-import axios from 'axios';
+import API from './api';
 import { useNavigate } from 'react-router-dom';
 
 const Card = ({ recipe, onView }) => {
@@ -18,8 +18,8 @@ const Card = ({ recipe, onView }) => {
 
   const handleFavorite = async () => {
     try {
-      const response = await axios.post(
-        `http://localhost:5000/api/recipes/favorite/${recipe._id}`,
+      const response = await API.post(
+        `/api/recipes/favorite/${recipe._id}`,
         { recipeId: recipe._id },
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
       );

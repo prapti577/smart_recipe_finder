@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import API from './api';
 import './Addnewrecipe.css';
 
 const AddRecipePage = () => {
@@ -8,11 +8,12 @@ const AddRecipePage = () => {
   const [instructions, setInstructions] = useState("");
   const [cookingTime, setCookingTime] = useState("");
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(
-        "http://localhost:5000/api/recipes/add",
+      await API.post(
+        "/api/recipes/add",
         { name, ingredients, instructions, cookingTime },
         {
           headers: {

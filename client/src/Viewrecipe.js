@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
+import API from "./api";
 import "./Viewrecipe.css";
 
 const RecipeDetail = () => {
@@ -17,7 +17,7 @@ const RecipeDetail = () => {
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/recipes/${id}`);
+        const res = await API.get(`/api/recipes/${id}`);
         setRecipe(res.data);
         // determine if current user has favorited this recipe
         try {
@@ -41,7 +41,7 @@ const RecipeDetail = () => {
   const handleRate = async (rating) => {
     setRatingLoading(true);
     try {
-      await axios.post(`http://localhost:5000/api/recipes/${id}/rate`, { rating });
+      await API.post(`/api/recipes/${id}/rate`, { rating });
       setSelectedRating(rating);
       alert("Thanks for rating!");
     } catch (err) {
@@ -55,8 +55,8 @@ const RecipeDetail = () => {
     setFavLoading(true);
     try {
       const token = localStorage.getItem('token');
-      const res = await axios.post(
-        `http://localhost:5000/api/recipes/favorite/${id}`,
+      const res = await API.post(
+        `/api/recipes/favorite/${id}`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );

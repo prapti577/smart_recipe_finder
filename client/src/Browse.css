@@ -66,3 +66,31 @@ body {
 .view-btn:hover {
   background-color: #f0f0f0;
 }
+
+.loading-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; /* adjust as needed */
+  margin: auto;
+}
+
+/* Multi-color fancy spinner */
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 8px solid transparent;
+  border-top: 8px solid #4783B5;  /* blue */
+  border-right: 8px solid #ED6E1A; /* orange */
+  border-bottom: 8px solid #F3F3F3; /* light grey */
+  border-left: 8px solid #4783B5;  /* blue */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(180deg); }
+  100% { transform: rotate(360deg); }
+}
+

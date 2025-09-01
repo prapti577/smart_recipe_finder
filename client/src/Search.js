@@ -1,27 +1,43 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './Search.css';
+
 const Search = ({ setIngredients, generateRecipe }) => {
-  const [input, setInput] = useState('');
+  const location = useLocation();
+  const navigate = useNavigate();
   const deb = useRef(null);
+
+  // Initialize from location.state or localStorage
+  const initialInput =
+    location.state?.searchText ||
+    localStorage.getItem('searchText') ||
+    '';
+  const [input, setInput] = useState(initialInput);
+
+  // Update ingredients with debounce
   useEffect(() => {
-    // debounce input -> setIngredients
     if (deb.current) clearTimeout(deb.current);
     deb.current = setTimeout(() => setIngredients(input), 300);
     return () => deb.current && clearTimeout(deb.current);
   }, [input, setIngredients]);
-  const handleInput = (val) => {
-    setInput(val);
-  };
-  const navigate = useNavigate();
-  const location = useLocation();
 
-  const handleSearchClick = () => {
+  // Save input to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('searchText', input);
+  }, [input]);
+
+  const handleInput = (val) => setInput(val);
+
+  const handleSearch = () => {
     setIngredients(input);
-    // if user is on home page, redirect to browse
-    if (location && (location.pathname === '/' || location.pathname === '')) {
-      navigate('/browse');
+    if (location.pathname === '/' || location.pathname === '') {
+      navigate('/browse', { state: { searchText: input } });
     }
+    if (generateRecipe) generateRecipe();
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') handleSearch();
   };
 
   return (
@@ -31,10 +47,13 @@ const Search = ({ setIngredients, generateRecipe }) => {
         placeholder="Search recipes by name, ingredient, or taste…"
         value={input}
         onChange={e => handleInput(e.target.value)}
+        onKeyDown={handleKeyDown}
       />
-      <button type="button" className="search-icon-home" onClick={handleSearchClick}>🔍</button>
+      <button type="button" className="search-icon-home" onClick={handleSearch}>
+        🔍
+      </button>
     </div>
   );
 };
+
 export default Search;
-// This component allows users to input ingredients and search for recipes based on those ingredients.

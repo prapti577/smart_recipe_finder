@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useNavigate, useLocation } from 'react-router-dom';
+import API from './api';
 import Navbar from './Navbar';
 import Card from './Card';
 import Search from './Search';
@@ -11,13 +10,11 @@ function App() {
   const [recipe, setRecipe] = useState('');
   const [popularRecipes, setPopularRecipes] = useState([]);
   const [slideIndex, setSlideIndex] = useState(0);
-  const location = useLocation();
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchPopularRecipes = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/recipes'); // Adjust endpoint as needed
+        const res = await API.get('/api/recipes'); // Adjust endpoint as needed
         // Shuffle recipes randomly
         const shuffled = res.data.sort(() => 0.5 - Math.random());
         setPopularRecipes(shuffled);
@@ -39,12 +36,12 @@ function App() {
 
   const generateRecipe = async () => {
     try {
-      const res = await axios.post('http://localhost:5000/api/recipe', {
+      const res = await API.post('/api/recipe', {
         ingredients
       });
       setRecipe(res.data.recipe);
     } catch (err) {
-      alert('Error generating recipe');
+      console.log('Error generating recipe');
     }
   };
 
@@ -60,7 +57,7 @@ function App() {
       <Navbar />
       <main>
         <h2>Find Delicious Recipes With<br />What’s In Your Kitchen,</h2>
-        <Search setIngredients={setIngredients} generateRecipe={generateRecipe} />
+        <Search ingredients={ingredients} setIngredients={setIngredients} generateRecipe={generateRecipe} />
         <h3>Popular Recipes</h3>
         <div
           className="cards slide"

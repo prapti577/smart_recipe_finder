@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from 'axios';
+import API from './api';
 import Navbar from './Navbar';
 import "./Browse.css";
 import Search from './Search';
@@ -21,17 +21,19 @@ export default function Browse() {
     return a;
   };
 
-  // When there's no search ingredients, fetch all recipes and show in random order
   useEffect(() => {
     const fetchRecipes = async () => {
       setLoading(true);
+
+      const startTime = Date.now(); // track start time
       try {
+        let res;
         if (ingredients && ingredients.trim() !== '') {
-          // search endpoint with query param
-          const res = await axios.get(`http://localhost:5000/api/recipes?q=${encodeURIComponent(ingredients.trim())}`);
+          const res = await API.get(`/api/recipes?q=${encodeURIComponent(ingredients.trim())}`);
+
           setRecipes(res.data || []);
         } else {
-          const res = await axios.get('http://localhost:5000/api/recipes');
+          res = await API.get('/api/recipes');
           setRecipes(shuffle(res.data || []));
         }
         setError(null);
@@ -39,24 +41,30 @@ export default function Browse() {
         setError('Failed to load recipes.');
         setRecipes([]);
       } finally {
-        setLoading(false);
+        // ensure loading stays at least 500ms
+        const elapsed = Date.now() - startTime;
+        const remaining = Math.max(500 - elapsed, 0);
+        setTimeout(() => setLoading(false), remaining);
       }
     };
+
     fetchRecipes();
   }, [ingredients]);
 
   const generateRecipe = async () => {
     setLoading(true);
+
+    const startTime = Date.now();
     try {
-      const res = await axios.post('http://localhost:5000/api/recipe', {
-        ingredients
-      });
+      const res = await API.post('/api/recipe', { ingredients });
       setRecipes([res.data.recipe]);
       setError(null);
     } catch (err) {
-      setError('Error generating recipe');
+      console.log('Error generating recipe');
     } finally {
-      setLoading(false);
+      const elapsed = Date.now() - startTime;
+      const remaining = Math.max(500 - elapsed, 0);
+      setTimeout(() => setLoading(false), remaining);
     }
   };
 
@@ -65,9 +73,12 @@ export default function Browse() {
       <Navbar />
       <h1 style={{ textAlign: 'center', marginTop: '2rem' }}>Browse Recipes</h1>
       <Search setIngredients={setIngredients} generateRecipe={generateRecipe} />
+
       <div className="browse-grid">
         {loading ? (
-          <div>Loading...</div>
+          <div className="loading-icon">
+            <div className="spinner"></div>
+          </div>
         ) : error ? (
           <div>{error}</div>
         ) : recipes.length === 0 ? (

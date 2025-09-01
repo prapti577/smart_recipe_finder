@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import API from "./api";
 import Card from "./Card";
 import "./Myrecipe.css";
 
@@ -12,7 +12,7 @@ export default function MyRecipe() {
     const fetchRecipes = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:5000/api/recipes/my", {
+        const res = await API.get("/api/recipes/my", {
           headers: {
             Authorization: `Bearer ${token}`,
           },

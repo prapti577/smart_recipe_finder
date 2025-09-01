@@ -29,7 +29,10 @@ router.get('/', async (req, res) => {
         const indexes = await Recipe.collection.indexes();
         const hasText = indexes.some(ix => Object.values(ix.key).some(v => v === 'text'));
         if (hasText) {
-          const recipes = await Recipe.find({ $text: { $search: q } }, { score: { $meta: 'textScore' } }).sort({ score: { $meta: 'textScore' } });
+          const recipes = await Recipe.find(
+            { $text: { $search: q } },
+            { score: { $meta: 'textScore' } }
+          ).sort({ score: { $meta: 'textScore' } });
           return res.status(200).json(recipes);
         }
       } catch (indexErr) {
@@ -37,16 +40,18 @@ router.get('/', async (req, res) => {
         console.warn('Text index check failed, falling back to regex search', indexErr);
       }
 
-      // fallback: escape regex special chars
-      const escaped = String(q).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      const regex = new RegExp(escaped, 'i');
+      // fallback: handle multiple words (match ANY word)
+      const words = String(q).trim().split(/\s+/); // split by spaces
+      const regexes = words.map(w => new RegExp(w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i'));
+
       const recipes = await Recipe.find({
         $or: [
-          { name: regex },
-          { ingredients: regex },
-          { taste: regex }
+          { name: { $in: regexes } },         // match any word in name
+          { ingredients: { $in: regexes } },  // match any word in ingredients
+          { taste: { $in: regexes } }         // match any word in taste
         ]
       });
+
       return res.status(200).json(recipes);
     }
 
@@ -56,6 +61,7 @@ router.get('/', async (req, res) => {
     res.status(500).json({ error: "Failed to fetch recipes." });
   }
 });
+
 
 // Get recipes for the logged-in user
 router.get('/my', authenticateToken, async (req, res) => {
