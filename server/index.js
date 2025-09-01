@@ -8,7 +8,13 @@ dotenv.config();
 const app = express();
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
-app.use(cors());
+const CLIENT_URL = process.env.CLIENT_URL || '*';
+
+app.use(cors({
+  origin: CLIENT_URL,
+  credentials: true
+}));
+
 app.use(express.json());
 
 const userRoutes = require("./routes/userRoutes");
