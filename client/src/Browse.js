@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import API from './api';
+import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import "./Browse.css";
 import Search from './Search';
@@ -10,6 +11,7 @@ export default function Browse() {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   // shuffle helper
   const shuffle = (arr) => {
@@ -89,6 +91,11 @@ export default function Browse() {
           ))
         )}
       </div>
+      <footer className='footer_login'>
+        <a href="" onClick={() => navigate("/about")}>About</a>
+        <a href="" onClick={() => navigate("/contact")}>Contact</a>
+        <a href="" onClick={() => navigate("/privacypolicy")}>Privacy Policy</a>
+      </footer>
     </div>
   );
 }

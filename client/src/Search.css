@@ -25,3 +25,25 @@
   border-radius: 0 6px 6px 0;
   cursor: pointer;
 }
+/* Mobile / Tablet View for Search Container */
+@media (max-width: 768px) {
+  .search-container-home {
+    width: 90%;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px auto;
+  }
+
+  .search-container input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: left;
+  }
+
+  .search-icon-home {
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 6px;
+  }
+}

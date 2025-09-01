@@ -63,3 +63,34 @@
   background-color: #ff000000;
   border: #ff000000;
 }
+/* Mobile / Tablet View for Signup Page */
+@media (max-width: 768px) {
+  .signup-container {
+    padding: 20px 10px;
+  }
+
+  .signup-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .signup-form {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .signup-form input {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .signup-btn {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .login-redirect {
+    font-size: 12px;
+    margin-top: 15px;
+  }
+}

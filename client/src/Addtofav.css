@@ -134,3 +134,94 @@
   cursor: pointer;
   text-align: left;
 }
+/* ------------------------------
+  Mobile View Styles
+   ------------------------------ */
+@media (max-width: 600px) {
+  /* Container */
+  .fav-container {
+    width: 95%;
+    padding: 0 10px;
+  }
+
+  /* Header */
+  .fav-header {
+    padding: 12px 0;
+  }
+
+  .fav-logo {
+    height: 32px;
+  }
+
+  /* Main Section */
+  .fav-main {
+    margin-top: 30px;
+    padding: 0 10px;
+  }
+
+  .fav-main h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .fav-main p {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  /* Buttons */
+  .circle-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    margin: 15px auto;
+  }
+
+  .browse-btn {
+    font-size: 14px;
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  /* Footer */
+  .fav-footer {
+    height: 35px;
+  }
+
+  /* No favorites message */
+  .no-favorites {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 16px;
+    padding: 0 10px;
+  }
+
+  /* Favorites page layout */
+  .favorites-container {
+    padding: 0.75rem 1rem;
+  }
+
+  .favorites-title {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .recipes-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+  }
+
+  .recipes-grid .card {
+    max-width: 100%;
+  }
+
+  .recipe-header {
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .back-btn {
+    font-size: 18px;
+  }
+}

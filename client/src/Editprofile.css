@@ -56,3 +56,43 @@
 .save-btn:hover {
   transform: translateY(-2px);
 }
+/* ------------------------------
+   Mobile View Styles
+   ------------------------------ */
+@media (max-width: 600px) {
+  .edit-profile-container {
+    padding: 20px 10px;       /* less padding */
+  }
+
+  .profile-picture-placeholder {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 15px;
+  }
+
+  .edit-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .edit-form {
+    max-width: 100%;          /* take full width */
+    padding: 0 5px;           /* little breathing space */
+  }
+
+  .edit-form label {
+    font-size: 14px;
+  }
+
+  .edit-form input {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .editsave-btn {
+    width: 100%;              /* full width button */
+    font-size: 14px;
+    padding: 10px;
+    margin-top: 12px;
+  }
+}

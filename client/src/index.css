@@ -417,3 +417,104 @@ body {
     opacity: 1;
   }
 }
+/* Mobile / Tablet View */
+@media (max-width: 768px) {
+  body {
+    padding: 20px 10px;
+    background-color: #f0a988;
+  }
+
+  .search-container-home {
+    width: 90%;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+  }
+
+  .search-container input {
+    width: 100%;
+    border-radius: 6px;
+    padding: 8px;
+    text-align: left;
+  }
+
+  .search-icon-home {
+    width: 100%;
+    border-radius: 6px;
+    padding: 10px 0;
+  }
+
+  .cards {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 15px;
+    padding-bottom: 10px;
+  }
+
+  .card {
+    min-width: 180px;
+    padding: 10px;
+  }
+
+  .card img {
+    height: 80px;
+  }
+
+  .top-bar {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  h2, h3 {
+    font-size: 18px;
+    padding: 0 10px;
+  }
+
+  .login-container, .profile-container {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .tabs {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tabs a {
+    font-size: 18px;
+  }
+
+  .remembered {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .google-btn {
+    flex-direction: column;
+    gap: 5px;
+    padding: 8px;
+  }
+
+  .profile-options {
+    padding: 15px 20px;
+  }
+
+  .profile-options ul {
+    font-size: 14px;
+    line-height: 2;
+  }
+
+  .edit-btn {
+    width: 70%;
+    padding: 6px 15px;
+  }
+
+  footer {
+    flex-direction: column;
+    padding: 10px 5px;
+    font-size: 12px;
+  }
+}

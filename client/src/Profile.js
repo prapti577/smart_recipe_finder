@@ -7,6 +7,12 @@ const Profile = () => {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem('user'));
 
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    navigate("/login");
+  };
+
+
   useEffect(() => {
     if (!user) {
       navigate('/login');
@@ -35,14 +41,14 @@ const Profile = () => {
             <li><strong><a href='/addrecipe' className='profile-links'>Add Recipe</a></strong></li>
           </ul>
         </div>
-        <div className="logout">
+        <div className="logout"  onClick={handleLogout}>
           <a href="#">Log Out</a>
         </div>
       </main>
-      <footer className='footer-profile'>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-        <a href="#">Privacy Policy</a>
+      <footer className='footer_login'>
+        <a href="" onClick={() => navigate("/about")}>About</a>
+        <a href="" onClick={() => navigate("/contact")}>Contact</a>
+        <a href="" onClick={() => navigate("/privacypolicy")}>Privacy Policy</a>
       </footer>
     </div>
   );

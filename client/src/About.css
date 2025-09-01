@@ -162,3 +162,81 @@
   text-decoration: none;
 }
 .about a:hover { text-decoration: underline; }
+/* ------------------------------
+   Mobile View Styles
+   ------------------------------ */
+@media (max-width: 600px) {
+  /* Page wrapper */
+  .about {
+    padding: 32px 12px;
+  }
+
+  /* Container */
+  .about__container {
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  /* Hero */
+  .about__kicker {
+    font-size: 13px;
+    padding: 5px 10px;
+  }
+
+  .about__title {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .about__subtitle {
+    font-size: 14px;
+  }
+
+  /* Sections */
+  .about__heading {
+    font-size: 18px;
+  }
+
+  .about__text {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* Grid → single column (already handled at 720px but tightened here) */
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .about__item {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .about__bullet {
+    width: 24px;
+    height: 24px;
+    font-size: 13px;
+  }
+
+  /* Badges */
+  .about__badges {
+    gap: 8px;
+  }
+  .about__badge {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  /* CTA box */
+  .about__cta {
+    margin-top: 24px;
+    padding: 14px;
+  }
+  .about__button {
+    width: 100%;
+    font-size: 15px;
+    padding: 12px;
+  }
+}
+

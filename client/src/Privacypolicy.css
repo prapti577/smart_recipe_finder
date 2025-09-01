@@ -110,3 +110,56 @@
 .privacy a:hover {
   text-decoration: underline;
 }
+/* Mobile / Tablet View for Privacy Page */
+@media (max-width: 768px) {
+  .privacy {
+    padding: 24px 10px;
+  }
+
+  .privacy__container {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .privacy__title {
+    font-size: 24px;
+  }
+
+  .privacy__subtitle {
+    font-size: 14px;
+  }
+
+  .privacy__section {
+    margin-top: 20px;
+  }
+
+  .privacy__heading {
+    font-size: 18px;
+  }
+
+  .privacy__text {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+
+  .privacy__list {
+    margin-left: 15px;
+  }
+
+  .privacy__list li {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+
+  .privacy__note {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .privacy__footer {
+    font-size: 12px;
+    margin-top: 24px;
+  }
+}

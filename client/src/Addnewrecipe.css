@@ -60,3 +60,48 @@ textarea {
 .submit-btn:hover {
   transform: translateY(-2px);
 }
+/* ------------------------------
+   Mobile View Styles
+   ------------------------------ */
+@media (max-width: 600px) {
+  /* Container */
+  .add-recipe-container {
+    width: 95%;
+    padding: 20px 12px;
+  }
+
+  /* Title */
+  .add-recipe-title {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  /* Form */
+  .add-recipe-form {
+    max-width: 100%;
+  }
+
+  .add-recipe-form label {
+    font-size: 14px;
+    margin: 8px 0 4px;
+  }
+
+  .add-recipe-form input,
+  .add-recipe-form textarea {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  textarea {
+    height: 70px;
+  }
+
+  /* Submit button */
+  .submit-btn {
+    font-size: 15px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 3px 3px 0px #af5c25;
+  }
+}

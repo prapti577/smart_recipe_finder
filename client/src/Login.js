@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import API from './api';
 import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 
@@ -11,7 +11,7 @@ const Login = ({ setShowLogin }) => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/users/login', {
+      const res = await API.post('/api/users/login', {
         email: loginEmail,
         password: loginPassword,
       });
@@ -31,7 +31,7 @@ const Login = ({ setShowLogin }) => {
     <div style={{ padding: '2rem' }}>
       {/* <Navbar /> */}
       <header className="top-bar">
-        <span style={{ cursor: 'pointer' }} onClick={() => setShowLogin && setShowLogin(false)}>← Back</span>
+        <span style={{ cursor: 'pointer' }} onClick={() => navigate(-1)}>← Back</span>
         <span>Log in</span>
       </header>
       <main className="login-container">
@@ -63,9 +63,9 @@ const Login = ({ setShowLogin }) => {
         </form>
       </main>
       <footer className='footer_login'>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-        <a href="#">Privacy Policy</a>
+        <a href="" onClick={() => navigate("/about")}>About</a>
+        <a href="" onClick={() => navigate("/contact")}>Contact</a>
+        <a href="" onClick={() => navigate("/privacypolicy")}>Privacy Policy</a>
       </footer>
     </div>
   );

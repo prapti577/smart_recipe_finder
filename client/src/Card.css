@@ -121,3 +121,61 @@
 .view-btn:hover svg {
   fill: #e1306c; /* Instagram pink */
 }
+/* ------------------------------
+   Mobile View Styles for Cards
+   ------------------------------ */
+@media (max-width: 600px) {
+  .cards {
+    flex-wrap: wrap;           /* stack cards */
+    gap: 15px;
+    justify-content: center;
+    overflow: visible;         /* allow wrapping */
+    min-height: auto;
+  }
+
+  .card {
+    max-width: 100%;           /* full width on small screens */
+    width: 100%;
+    height: auto;
+    padding: 12px;
+  }
+
+  .card img {
+    height: 80px;              /* smaller image */
+    margin-bottom: 8px;
+  }
+
+  .card h3 {
+    font-size: 16px;
+    margin: 8px 0 4px;
+  }
+
+  .card p {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  .card-buttons {
+    flex-direction: column;    /* stack buttons vertically */
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .save-btn,
+  .view-btn {
+    position: relative;        /* remove absolute positioning */
+    left: auto;
+    bottom: auto;
+    width: 100%;               /* buttons take full width */
+    height: 40px;
+    margin: 0;
+    box-shadow: none;
+    border-radius: 6px;
+  }
+
+  .save-btn svg,
+  .view-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+}

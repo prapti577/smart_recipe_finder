@@ -106,3 +106,46 @@
   justify-content: center;
   margin-left: 20%;
 }
+/* Mobile / Tablet View for Recipe Page */
+@media (max-width: 768px) {
+  .recipe-container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .recipe-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .back-btn {
+    font-size: 18px;
+  }
+
+  .fav-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .fav-btn svg {
+    width: 18px;
+    padding-right: 4px;
+  }
+
+  .recipe-image img {
+    width: 80px;
+    margin: 15px auto;
+  }
+
+  .recipe-title h1 {
+    font-size: 20px;
+  }
+
+  .meta {
+    flex-direction: column;
+    gap: 5px;
+    font-size: 12px;
+  }
+}

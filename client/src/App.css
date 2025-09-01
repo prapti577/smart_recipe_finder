@@ -135,3 +135,88 @@ footer {
   gap: 30px;
   font-size: 14px;
 }
+
+/* ------------------------------
+   Mobile View Styles
+   ------------------------------ */
+@media (max-width: 600px) {
+  /* Header */
+  header {
+    text-align: center;
+    padding: 8px 12px;
+  }
+
+  .login-btn {
+    font-size: 14px;
+  }
+
+  /* Headings */
+  h1 {
+    font-size: 22px;
+    margin: 15px 0;
+    padding: 0 10px;
+  }
+
+  h2 {
+    font-size: 18px;
+    margin: 20px 0 8px;
+    padding: 0 10px;
+  }
+
+  /* Search Bar */
+  .search-container {
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 0;
+  }
+
+  .search-container input {
+    width: 90%;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  .search-icon {
+    width: 90%;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  /* Cards */
+  .cards {
+    gap: 15px;
+  }
+
+  .card {
+    width: 90%;
+    max-width: 250px;
+    padding: 12px;
+  }
+
+  .card img {
+    height: 80px;
+  }
+
+  .card h3 {
+    font-size: 16px;
+  }
+
+  .card p {
+    font-size: 13px;
+  }
+
+  .card button {
+    font-size: 13px;
+    padding: 5px 8px;
+  }
+
+  /* Footer */
+  footer {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 25px;
+    font-size: 13px;
+  }
+}

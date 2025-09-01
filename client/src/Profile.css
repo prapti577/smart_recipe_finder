@@ -18,3 +18,12 @@
     background: linear-gradient(90deg, #0033cc 60%, #0099cc 100%);
     box-shadow: 0 4px 16px rgba(0,71,255,0.18);
 }
+/* Mobile / Tablet View for Edit Profile Button */
+@media (max-width: 768px) {
+  .editprofile {
+    width: 100%;        /* Full width for smaller screens */
+    padding: 12px 0;    /* Slightly taller for easier tapping */
+    font-size: 14px;    /* Slightly smaller text to fit width */
+    margin: 6px 0;      /* Adjust spacing between elements */
+  }
+}

@@ -58,3 +58,45 @@
 .view-btn:hover {
   background-color: #f0f0f0;
 }
+/* ------------------------------
+   Mobile View Styles
+   ------------------------------ */
+@media (max-width: 600px) {
+  .favorites-container {
+    width: 100%;              /* take full width */
+    padding: 15px 10px;        /* reduce padding */
+  }
+
+  .favorites-container h1 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .favorites-grid {
+    grid-template-columns: 1fr;  /* single column */
+    gap: 15px;
+  }
+
+  .recipe-card {
+    width: 100%;               /* card takes full width */
+    max-width: 300px;          /* but not too wide */
+  }
+
+  .recipe-img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .recipe-card h3 {
+    font-size: 14px;
+  }
+
+  .recipe-info {
+    font-size: 12px;
+  }
+
+  .view-btn {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+}

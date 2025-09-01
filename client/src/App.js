@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import API from './api';
+import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import Card from './Card';
 import Search from './Search';
@@ -10,6 +11,7 @@ function App() {
   const [recipe, setRecipe] = useState('');
   const [popularRecipes, setPopularRecipes] = useState([]);
   const [slideIndex, setSlideIndex] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchPopularRecipes = async () => {
@@ -70,10 +72,10 @@ function App() {
       </main>
       <br />
       <pre>{recipe}</pre>
-      <footer className='footer'>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-        <a href="#">Privacy Policy</a>
+    <footer className='footer_login'>
+        <a href="" onClick={() => navigate("/about")}>About</a>
+        <a href="" onClick={() => navigate("/contact")}>Contact</a>
+        <a href="" onClick={() => navigate("/privacypolicy")}>Privacy Policy</a>
       </footer>
     </div>
   );

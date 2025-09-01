@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import Searchresult from './Searchresult';
 import Addtofav from './Addtofav';
 import RecipeDetail from './Viewrecipe';
 import SignUpPage from './Signuppage';
@@ -25,7 +24,6 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/searchresult" element={<Searchresult />} />
         <Route path="/addtofav" element={<Addtofav />} />
         <Route path="/recipe/:id" element={<RecipeDetail />} />
         <Route path="/Viewrecipe" element={<RecipeDetail />} />
