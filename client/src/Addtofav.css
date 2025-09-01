@@ -1,0 +1,136 @@
+.fav-container {
+  background-color: #f0b292;
+  width: 70%;
+  margin: auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fav-header {
+  width: 100%;
+  padding: 20px 0;
+  border-bottom: 1px solid #b76e5c;
+  display: flex;
+  justify-content: center;
+}
+
+.fav-logo {
+  height: 40px;
+}
+
+.fav-main {
+  text-align: center;
+  margin-top: 50px;
+  flex: 1;
+}
+
+.fav-main h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 15px;
+}
+
+.fav-main p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.circle-btn {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin: 20px auto;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.circle-btn:hover {
+  background-color: #fff3ee;
+}
+
+.browse-btn {
+  background-color: #e96c2c;
+  width: 100%;
+  margin: auto;
+  color: #fff;
+  padding: 12px 32px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.browse-btn:hover {
+  transform: translateY(-2px);
+}
+
+.fav-footer {
+  height: 40px;
+  width: 100%;
+  border-top: 1px solid #b76e5c;
+}
+.no-favorites {
+  text-align: center;
+  margin-top: 80px;
+  font-size: 18px;
+  margin-bottom: 80px;
+  color: #555;
+}
+
+/* Favorites page layout */
+.favorites-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem 1.25rem;
+}
+
+.favorites-title {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 0px;
+  color: #3b2a20;
+}
+
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  align-items: start;
+  margin-bottom: 1.5rem;
+}
+
+/* Make sure Card component is responsive inside grid */
+.recipes-grid .card {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 260px;
+}
+
+.recipe-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.back-btn {
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}

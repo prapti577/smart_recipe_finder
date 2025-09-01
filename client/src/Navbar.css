@@ -1,0 +1,83 @@
+body.dark {
+  background-color: #121212;
+  color: white;
+}
+
+.navbar {
+  background: #ffffff40;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: #7e5e13 2px 2px 2px;
+  border-radius: 5px;
+}
+
+body.dark .navbar {
+  background: #1f1f1f;
+}
+
+.navbar .left h2 {
+  margin: 0;
+}
+
+.navbar .right {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  width: 50%;
+  margin: auto;
+}
+.navbar .right .logout-btn {
+    background-color: #0047ff;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 0px #888;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+body.dark .navbar .right .logout-btn {
+  background-color: #333;
+  color: white;
+}
+
+.profile-pic {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Controls space between avatar and name */
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+  margin: auto;
+}
+
+.user-name {
+  font-weight: 500;
+  font-size: 16px;
+  color: #000;
+}
+.theme-toggle {
+  width: 80px;
+  background-color: #00000000;
+  border: none  ;
+}
+.left h2 {
+  color: #000;
+  text-align: left;
+}

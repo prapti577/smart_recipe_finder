@@ -1,0 +1,112 @@
+/* -------------------------------
+   PrivacyPolicy.css
+   For PrivacyPolicy.js page
+--------------------------------*/
+
+/* Theme variables */
+:root {
+  --peach: #eab89d;
+  --peach-light: #f7e1d5;
+  --ink: #1e1e1e;
+  --muted: #5b5b5b;
+  --brand: #e67a4a;
+  --card: #fffdfc;
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Page wrapper */
+.privacy {
+  min-height: 100vh;
+  background: var(--peach-light);
+  display: flex;
+  justify-content: center;
+  padding: 48px 20px;
+  box-sizing: border-box;
+}
+
+/* Content container */
+.privacy__container {
+  width: min(1000px, 100%);
+  background: var(--card);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: clamp(24px, 5vw, 48px);
+}
+
+/* Header */
+.privacy__hero {
+  text-align: center;
+  margin-bottom: 36px;
+}
+.privacy__title {
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 800;
+  color: var(--ink);
+  margin: 0;
+}
+.privacy__subtitle {
+  font-size: clamp(15px, 2vw, 18px);
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+/* Sections */
+.privacy__section {
+  margin-top: 28px;
+}
+.privacy__section + .privacy__section {
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding-top: 28px;
+}
+.privacy__heading {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  color: var(--ink);
+}
+.privacy__text {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0 0 14px 0;
+}
+
+/* List styling */
+.privacy__list {
+  margin: 8px 0 16px 20px;
+  padding: 0;
+}
+.privacy__list li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* Highlighted notes */
+.privacy__note {
+  background: var(--peach-light);
+  border-left: 4px solid var(--brand);
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin: 16px 0;
+  font-size: 15px;
+  color: var(--ink);
+}
+
+/* Footer / Last updated */
+.privacy__footer {
+  text-align: center;
+  margin-top: 32px;
+  font-size: 14px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Links inside text */
+.privacy a {
+  color: var(--brand);
+  text-decoration: none;
+}
+.privacy a:hover {
+  text-decoration: underline;
+}

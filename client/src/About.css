@@ -1,0 +1,164 @@
+/* -----------------------------
+   About.css  (for About page only)
+   Palette tuned to your peach theme
+----------------------------------*/
+
+/* Theme variables */
+:root {
+  --peach: #eab89d;
+  --peach-200: #f7e1d5;
+  --ink: #1e1e1e;
+  --muted: #5b5b5b;
+  --brand: #e67a4a;
+  --card: #fff8f3;
+  --shadow: 0 10px 24px rgba(0,0,0,.08);
+}
+
+/* Page wrapper */
+.about {
+  min-height: 100vh;
+  background: var(--peach);
+  display: flex;
+  justify-content: center;
+  padding: 48px 20px;
+  box-sizing: border-box;
+}
+
+/* Content container */
+.about__container {
+  width: min(1100px, 100%);
+  background: var(--card);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: clamp(24px, 4vw, 48px);
+}
+
+/* Hero */
+.about__hero {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.about__kicker {
+  display: inline-block;
+  background: var(--peach-200);
+  color: var(--brand);
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+  letter-spacing: .4px;
+}
+.about__title {
+  margin: 14px 0 6px 0;
+  font-size: clamp(28px, 4.5vw, 40px);
+  line-height: 1.15;
+  color: var(--ink);
+  font-weight: 800;
+}
+.about__subtitle {
+  color: var(--muted);
+  font-size: clamp(16px, 2vw, 18px);
+}
+
+/* Sections */
+.about__section {
+  margin-top: 28px;
+  padding-top: 8px;
+}
+.about__section + .about__section {
+  border-top: 1px solid rgba(0,0,0,.06);
+  padding-top: 28px;
+}
+.about__heading {
+  font-size: clamp(20px, 3vw, 24px);
+  margin: 0 0 10px 0;
+  color: var(--ink);
+  font-weight: 700;
+}
+.about__text {
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+/* Two-column features list */
+.about__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+@media (max-width: 720px) {
+  .about__grid { grid-template-columns: 1fr; }
+}
+.about__item {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.about__item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+.about__bullet {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--peach-200);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  color: var(--brand);
+}
+
+/* Values / Stats badges */
+.about__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+.about__badge {
+  background: #fff;
+  border: 1px dashed rgba(0,0,0,.15);
+  color: var(--ink);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* CTA box (optional) */
+.about__cta {
+  margin-top: 32px;
+  background: linear-gradient(180deg, var(--peach-200), #fff);
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 14px;
+  padding: 18px;
+  text-align: center;
+}
+.about__button {
+  appearance: none;
+  border: 0;
+  background: var(--brand);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: filter .18s ease, transform .06s ease;
+  box-shadow: 0 6px 16px rgba(230,122,74,.35);
+}
+.about__button:hover { filter: brightness(1.05); }
+.about__button:active { transform: translateY(1px); }
+
+/* Links inside text */
+.about a {
+  color: var(--brand);
+  text-decoration: none;
+}
+.about a:hover { text-decoration: underline; }

@@ -1,0 +1,123 @@
+.cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: nowrap;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  min-height: 220px;
+}
+
+.card {
+  background-color: #fff;
+  padding: 15px;
+  height: 230px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 10px rgba(0,0,0,0.2);
+  text-align: center;
+  transition: transform 0.6s cubic-bezier(.4,0,.2,1), opacity 0.6s cubic-bezier(.4,0,.2,1);
+  opacity: 1;
+  position: relative;
+  max-width: 220px;
+}
+
+.cards .card {
+  /* Optionally fade in/out */
+  opacity: 1;
+}
+
+.card img {
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  margin: 10px 0 5px;
+}
+
+.card p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.card-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto; /* Push buttons to the bottom */
+}
+
+.card button {
+  background-color: #f2f2f2;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.card button:hover {
+  background-color: #e0e0e0;
+}
+
+.save-btn {
+  background: none;
+  border: none;
+  padding: 6px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  position: absolute;
+  left: 65%;
+  bottom: 16px;
+
+  z-index: 2;
+  margin: 0;
+}
+.save-btn svg {
+  fill: #333;
+  width: 22px;
+  height: 22px;
+  transition: fill 0.2s;
+}
+.save-btn:hover {
+  background: #f5f5f5;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.save-btn:hover svg {
+  fill: #e1306c; /* Instagram pink */
+}
+.save-btn.favorited svg {
+  fill: #e1306c; /* show filled color when favorited */
+}
+.view-btn {
+  background: none;
+  border: none;
+  padding: 6px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 35px;
+  position: absolute;
+  left: 10%;
+  bottom: 16px;
+  box-shadow: 4px 4px 0px #af5c25;;
+}
+.view-btn svg {
+  fill: #333;
+  width: 22px;
+  height: 22px;
+  transition: fill 0.2s;
+}
+.view-btn:hover {
+  background: #f5f5f5;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.view-btn:hover svg {
+  fill: #e1306c; /* Instagram pink */
+}

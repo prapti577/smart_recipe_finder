@@ -1,0 +1,108 @@
+.recipe-container {
+  background-color: #f0b292;
+  padding: 2rem;
+  font-family: sans-serif;
+  color: #000;
+  width: 500px;
+  margin: auto;
+}
+
+.recipe-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back-btn {
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.fav-btn {
+  display: flex;;
+  background-color: #e96c2c;
+  width: 55%;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+.fav-btn.favorited svg {
+  color: #e1306c; /* pinkish heart color */
+}
+.fav-btn.favorited {
+  border-color: #e1306c;
+  background-color: rgba(225,48,108,0.06);
+}
+  cursor: pointer;
+}
+
+.fav-btn svg {
+  fill: white;
+  width: 22px;
+  padding-right: 6px;
+}
+
+.recipe-image img {
+  width: 100px;
+  margin: 20px auto;
+  display: block;
+}
+
+.recipe-title {
+  text-align: center;
+}
+
+.recipe-title h1 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.meta {
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.section h2 {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.section ul,
+.section ol {
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+.share-btn {
+    margin-top: 5px;
+    width: 200px;
+    height: 40px;
+    background-color: #d5692f;
+    color: black;
+    font-weight: bold;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 4px 4px 0px #af5c25;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.rating-stars {
+  display: flex;
+  justify-content: center;
+  margin-left: 20%;
+}

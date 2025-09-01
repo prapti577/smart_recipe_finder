@@ -1,0 +1,20 @@
+.editprofile{
+    background: linear-gradient(90deg, #0047ff 60%, #00c6ff 100%);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 50%;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,71,255,0.12);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+.editprofile:hover {
+    background: linear-gradient(90deg, #0033cc 60%, #0099cc 100%);
+    box-shadow: 0 4px 16px rgba(0,71,255,0.18);
+}
