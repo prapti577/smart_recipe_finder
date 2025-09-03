@@ -92,7 +92,7 @@ const RecipeDetail = () => {
       </div>
 
       <div className="recipe-image">
-        <img src={recipe.image || "/spaghetti.png"} alt={recipe.name} />
+        <img src={recipe.imageUrl || "/spaghetti.png"} alt={recipe.name} />
       </div>
 
       <div className="recipe-title">
