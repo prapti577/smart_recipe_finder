@@ -7,21 +7,57 @@ const AddRecipePage = () => {
   const [ingredients, setIngredients] = useState("");
   const [instructions, setInstructions] = useState("");
   const [cookingTime, setCookingTime] = useState("");
+  const [image, setImage] = useState(null);
+  const [imageUrl, setImageUrl] = useState("");
+  const [uploading, setUploading] = useState(false);
 
+  // Upload image to backend (Vercel Blob)
+  const handleImageUpload = async (file) => {
+    setUploading(true);
+    const formData = new FormData();
+    formData.append("profilePic", file);
+
+    try {
+      const res = await API.post("/api/upload/profile", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      setImageUrl(res.data.imageUrl);
+    } catch (err) {
+      console.error("Image upload failed:", err);
+      alert("Failed to upload image");
+    } finally {
+      setUploading(false);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!imageUrl) {
+      alert("Please wait until the image finishes uploading!");
+      return;
+    }
+
     try {
       await API.post(
         "/api/recipes/add",
-        { name, ingredients, instructions, cookingTime },
+        { name, ingredients, instructions, cookingTime, imageUrl },
         {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         }
       );
-      alert("Recipe added!");
+      alert("Recipe added successfully!");
+      setName("");
+      setIngredients("");
+      setInstructions("");
+      setCookingTime("");
+      setImage(null);
+      setImageUrl("");
     } catch (err) {
       console.error(err);
       alert("Failed to add recipe.");
@@ -35,7 +71,6 @@ const AddRecipePage = () => {
         <label>Name</label>
         <input
           type="text"
-          name="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Recipe name"
@@ -44,7 +79,6 @@ const AddRecipePage = () => {
 
         <label>Ingredients</label>
         <textarea
-          name="ingredients"
           value={ingredients}
           onChange={(e) => setIngredients(e.target.value)}
           placeholder="List ingredients"
@@ -54,7 +88,6 @@ const AddRecipePage = () => {
         <label>Instructions</label>
         <input
           type="text"
-          name="instructions"
           value={instructions}
           onChange={(e) => setInstructions(e.target.value)}
           placeholder="Write instructions"
@@ -64,14 +97,33 @@ const AddRecipePage = () => {
         <label>Cooking Time</label>
         <input
           type="text"
-          name="cookingTime"
           value={cookingTime}
           onChange={(e) => setCookingTime(e.target.value)}
           placeholder="e.g. 30 min"
           required
         />
 
-        <button type="submit" className="submit-btn">Add Recipe</button>
+        <label>Upload Image</label>
+        <input
+          type="file"
+          accept="image/*"
+          onChange={(e) => {
+            setImage(e.target.files[0]);
+            handleImageUpload(e.target.files[0]);
+          }}
+        />
+        {uploading && <p>Uploading image...</p>}
+        {imageUrl && (
+          <img
+            src={imageUrl}
+            alt="Recipe Preview"
+            style={{ width: "120px", marginTop: "10px" }}
+          />
+        )}
+
+        <button type="submit" className="submit-btn" disabled={uploading}>
+          {uploading ? "Uploading Image..." : "Add Recipe"}
+        </button>
       </form>
     </div>
   );

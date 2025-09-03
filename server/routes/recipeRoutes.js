@@ -7,16 +7,20 @@ const mongoose = require('mongoose');
 // Add new recipe (protected)
 router.post("/add", authenticateToken, async (req, res) => {
   try {
-    const { name, ingredients, instructions, cookingTime } = req.body;
+    const { name, ingredients, instructions, cookingTime, imageUrl } = req.body;
     const user = req.user && req.user.userId;
     if (!user) return res.status(401).json({ error: "User not found in token" });
-    const recipe = new Recipe({ name, ingredients, instructions, cookingTime, user });
+
+    const recipe = new Recipe({ name, ingredients, instructions, cookingTime, imageUrl, user });
     await recipe.save();
+
     res.status(201).json({ message: "Recipe added!", recipe });
   } catch (err) {
+    console.error("Add recipe error:", err);
     res.status(500).json({ error: "Failed to add recipe." });
   }
 });
+
 
 // Get all recipes
 router.get('/', async (req, res) => {

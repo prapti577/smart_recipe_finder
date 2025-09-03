@@ -11,7 +11,7 @@
 .card {
   background-color: #fff;
   padding: 15px;
-  height: 230px;
+  height: 300px;
   border-radius: 10px;
   box-shadow: 4px 4px 10px rgba(0,0,0,0.2);
   text-align: center;
@@ -121,6 +121,15 @@
 .view-btn:hover svg {
   fill: #e1306c; /* Instagram pink */
 }
+
+.card-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
 /* ------------------------------
    Mobile View Styles for Cards
    ------------------------------ */

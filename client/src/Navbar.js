@@ -4,7 +4,6 @@ import "./Navbar.css";
 
 const Navbar = () => {
   const [user, setUser] = useState(null);
-  const [filter, setFilter] = useState("all");
   const [darkMode, setDarkMode] = useState(false);
   const navigate = useNavigate();
 
@@ -25,11 +24,6 @@ const Navbar = () => {
     navigate("/login");
   };
 
-  const handleFilterChange = (e) => {
-    setFilter(e.target.value);
-    // Send to parent or trigger recipe fetch
-  };
-
   const toggleDarkMode = () => {
     const newMode = !darkMode;
     setDarkMode(newMode);
@@ -39,31 +33,43 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <div className="left">
-        <h2 style={{ cursor: 'pointer' }} onClick={() => navigate('/')}>Recipe App</h2>
+      <div className="left" style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+        {/* 🔹 Logo + Text */}
+        <img
+          src="/appLogo.png"
+          alt="App Logo"
+          className="app-logo"
+          style={{ width: "50px", cursor: "pointer" }}
+          onClick={() => navigate("/")}
+        />
+        <h2 style={{ cursor: "pointer", margin: 0 }} onClick={() => navigate("/")}>
+          Recipe App
+        </h2>
       </div>
-      <div className="right ">
-        <button className="theme-toggle"  onClick={toggleDarkMode}>
+
+      <div className="right">
+        <button className="theme-toggle" onClick={toggleDarkMode}>
           {darkMode ? "🌙" : "☀️"}
         </button>
 
-        {user && (
+        {user ? (
           <>
             <div className="user-info">
               <img
-                src={user.profilePic || process.env.PUBLIC_URL + '/avatar.png'}
+                src={user.profilePic || process.env.PUBLIC_URL + "/avatar.png"}
                 alt="profile"
                 className="profile-pic"
-                style={{ cursor: 'pointer' }}
-                onClick={() => navigate('/profile')}
+                style={{ cursor: "pointer" }}
+                onClick={() => navigate("/profile")}
               />
               <span className="user-name">{user.name || user.email}</span>
             </div>
-            <button className="logout-btn" onClick={handleLogout}>Log Out</button>
+            <button className="logout-btn" onClick={handleLogout}>
+              Log Out
+            </button>
           </>
-        )}
-        {!user && (
-          <button className="login-btn" onClick={() => navigate('/login')}>
+        ) : (
+          <button className="login-btn" onClick={() => navigate("/login")}>
             Log In
           </button>
         )}
@@ -73,5 +79,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-

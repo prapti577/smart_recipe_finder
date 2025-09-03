@@ -1,21 +1,28 @@
-const express = require('express');
-const multer = require('multer');
-const path = require('path');
+const express = require("express");
+const multer = require("multer");
+const { put } = require("@vercel/blob");
 const router = express.Router();
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, '../uploads'));
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + '-' + file.originalname);
+// Store file in memory instead of disk
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
+
+router.post("/profile", upload.single("profilePic"), async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ error: "No file uploaded" });
+    }
+
+    // Upload to Vercel Blob
+    const blob = await put(`recipes/${Date.now()}-${req.file.originalname}`, req.file.buffer, {
+      access: "public", // makes it accessible via URL
+    });
+
+    res.json({ imageUrl: blob.url }); // return the public URL
+  } catch (err) {
+    console.error("Upload failed:", err);
+    res.status(500).json({ error: "Image upload failed" });
   }
-});
-
-const upload = multer({ storage: storage });
-
-router.post('/profile', upload.single('profilePic'), (req, res) => {
-  res.json({ imageUrl: `/uploads/${req.file.filename}` });
 });
 
 module.exports = router;

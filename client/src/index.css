@@ -392,6 +392,7 @@ body {
   cursor: pointer;
 }
 .cards.slide{
+  overflow: hidden;
   translate: 0 0;
   animation: slide-and-reappear 10s infinite
 }
